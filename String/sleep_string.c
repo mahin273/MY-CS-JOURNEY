@@ -12,5 +12,5 @@ for (  i = 0; i < strlen(str1); i++)
     Sleep(500);
 }
 
-
+return 0;
 }

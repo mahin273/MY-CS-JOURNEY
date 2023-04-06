@@ -34,8 +34,6 @@ if (flag == 1)
        printf("Not equal");
     }
 
-
-    
-    
+   return 0;
 
 }
