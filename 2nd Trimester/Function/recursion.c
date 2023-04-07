@@ -9,7 +9,7 @@ int main()
 void print_recursion(int n)
 {
     printf("Have a Good Day!!!\n");
-    if (n == 1)
+    if (n == 1) //base case
     {
         return;
     }
