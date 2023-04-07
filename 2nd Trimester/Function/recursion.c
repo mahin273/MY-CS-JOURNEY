@@ -8,7 +8,7 @@ int main()
 
 void print_recursion(int n)
 {
-    printf("Have a Good Day!!!\n");
+    printf("Have a Good Day!!! %d\n",n);
     if (n == 1) //base case
     {
         return;
