@@ -30,7 +30,4 @@ printf("CGPA : %.2f",s.cgpa);
 
 return 0;
 
-
-
-
 }

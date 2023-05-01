@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#define MAX_PLAYERS 50
+ #define MAX_PLAYERS 50
  struct player {
     char name[50];
     int age;
@@ -27,27 +27,24 @@
         printf("Error opening input file\n");
         return;
     }
-    fscanf(fp, "%d\n", num_players);
+    fscanf(fp, "%d", num_players);
     for (int i = 0; i < *num_players; i++) {
-        fgets(players[i].name, 50, fp);
-        players[i].name[strcspn(players[i].name, "\n")] = 0; // Remove newline character
-        fscanf(fp, "%d\n", &players[i].age);
-        fgets(players[i].role, 50, fp);
-        players[i].role[strcspn(players[i].role, "\n")] = 0; // Remove newline character
-        fscanf(fp, "%d\n%d\n%d\n", &players[i].matches, &players[i].total_runs, &players[i].highest_run);
+        fscanf(fp, "%s %d %s %d %d %d", players[i].name, &players[i].age,
+               players[i].role, &players[i].matches,
+               &players[i].total_runs, &players[i].highest_run);
     }
     fclose(fp);
 }
  void show_all_players(struct player players[], int num_players) {
     printf("\nAll Players:\n");
-    printf("Name\t\t\tAge\tRole\t\t\tMatches\tTotal Runs\tHighest Run\n");
+    printf("Name\t\tAge\tRole\tMatches\tTotal Runs\tHighest Run\n");
     for (int i = 0; i < num_players; i++) {
-        printf("%-24s %d\t%-24s %d\t%d\t\t%d\n", players[i].name, players[i].age,
+        printf("%s\t\t%d\t%s\t%d\t%d\t\t%d\n", players[i].name, players[i].age,
                players[i].role, players[i].matches,
                players[i].total_runs, players[i].highest_run);
     }
 }
-void show_player_info(struct player players[], int num_players) {
+ void show_player_info(struct player players[], int num_players) {
     char name[50];
     printf("\nEnter player name: ");
     scanf("%s", name);
@@ -55,7 +52,7 @@ void show_player_info(struct player players[], int num_players) {
         if (strcmp(name, players[i].name) == 0) {
             printf("\nPlayer Information:\n");
             printf("Name\t\tAge\tRole\tMatches\tTotal Runs\tHighest Run\n");
-            printf("%-14s %d\t%-10s %d\t%d\t\t%d\n", players[i].name, players[i].age,
+            printf("%s\t\t%d\t%s\t%d\t%d\t\t%d\n", players[i].name, players[i].age,
                    players[i].role, players[i].matches,
                    players[i].total_runs, players[i].highest_run);
             return;
@@ -134,13 +131,12 @@ void show_player_info(struct player players[], int num_players) {
     printf("Name\t\tAge\tRole\tMatches\tTotal Runs\tHighest Run\n");
     for (int i = 0; i < num_players; i++) {
         if (strcmp(players[i].role, "Allrounder") == 0) {
-            printf("%-14s %d\t%-10s %d\t%d\t\t%d\n", players[i].name, players[i].age,
+            printf("%s\t\t%d\t%s\t%d\t%d\t\t%d\n", players[i].name, players[i].age,
                    players[i].role, players[i].matches,
                    players[i].total_runs, players[i].highest_run);
         }
     }
 }
- // ... rest of the functions remains the same
  int main() {
     struct player players[MAX_PLAYERS];
     int num_players;
@@ -158,11 +154,8 @@ void show_player_info(struct player players[], int num_players) {
         printf("8. Show Most Valuable Player\n");
         printf("9. Show Allrounders\n");
         printf("10. Exit/Quit\n");
-        // ... rest of the menu options
         printf("Enter your choice: ");
         scanf("%d", &choice);
-        getchar(); // To clear the input buffer
-        // ... rest of the switch case
         switch (choice) {
             case 1:
                 show_all_players(players, num_players);
