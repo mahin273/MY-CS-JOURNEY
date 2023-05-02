@@ -2,8 +2,8 @@
 NAME:Md.Mahin Khan
 ID  :0112230105
 */
-#include <stdio.h>
-#include <string.h>
+#include<stdio.h>
+#include<string.h>
 #define MAX_PLAYERS 100
 
 //This Structure Is defined to Store player information
