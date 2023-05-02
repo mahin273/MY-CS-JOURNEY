@@ -1,6 +1,12 @@
+/*
+NAME:Md.Mahin Khan
+ID  :0112230105
+*/
 #include <stdio.h>
 #include <string.h>
 #define MAX_PLAYERS 50
+
+//This Structure Is defined to Store player information
 struct player
 {
     char name[50];
@@ -10,6 +16,11 @@ struct player
     int total_runs;
     int highest_run;
 };
+
+/*
+This Function is for calculate the value of a player based on
+age, matches,total runs, highest run and role
+*/
 int CalculateValue(struct player p)
 {
     int value = p.age + p.matches + p.total_runs + p.highest_run;
@@ -20,6 +31,8 @@ int CalculateValue(struct player p)
     }
     return value;
 }
+
+/*This function will read player data from and input file*/
 void ReadInput(struct player players[], int* num_players)
 {
     FILE* file;
@@ -44,6 +57,8 @@ void ReadInput(struct player players[], int* num_players)
     }
     fclose(file);
 }
+
+/*This function will display information of all player*/
 void ShowAllPlayers(struct player players[], int num_players)
 {
     printf("\nAll Players:\n");
@@ -55,6 +70,8 @@ void ShowAllPlayers(struct player players[], int num_players)
                players[i].total_runs, players[i].highest_run);
     }
 }
+
+/*This function will display information of a specific player*/
 void ShowPlayerInfo(struct player players[], int num_players)
 {
     char name[50];
@@ -76,6 +93,7 @@ void ShowPlayerInfo(struct player players[], int num_players)
     printf("Player not found\n");
 }
 
+/*This function will show the most experienced player*/
 void ShowMEP(struct player players[], int num_players)
 {
     int mep_index = 0;
@@ -89,6 +107,8 @@ void ShowMEP(struct player players[], int num_players)
     printf("%s is the most experienced player with %d matches\n",
            players[mep_index].name, players[mep_index].matches);
 }
+
+/*This function will show the new comer player*/
 void ShowNCP(struct player players[], int num_players)
 {
     int ncp_index = 0;
@@ -102,6 +122,8 @@ void ShowNCP(struct player players[], int num_players)
     printf("%s is the new comer player with age %d\n",
            players[ncp_index].name, players[ncp_index].age);
 }
+
+/*This function will show the top scorer player*/
 void ShowTSP(struct player players[], int num_players)
 {
     int tsp_index = 0;
@@ -115,6 +137,8 @@ void ShowTSP(struct player players[], int num_players)
     printf("%s is the top scorer with %d total runs\n",
            players[tsp_index].name, players[tsp_index].total_runs);
 }
+
+/*This function will show the hard hitter player*/
 void ShowHHP(struct player players[], int num_players)
 {
     int hhp_index = 0;
@@ -131,6 +155,8 @@ void ShowHHP(struct player players[], int num_players)
     printf("%s is the hard hitter with an average run of %.2f per match\n",
            players[hhp_index].name, hhp_avg);
 }
+
+/*This function will show the highest run taker player*/
 void ShowHRTP(struct player players[], int num_players)
 {
     int hrtp_index = 0;
@@ -144,6 +170,8 @@ void ShowHRTP(struct player players[], int num_players)
     printf("%s is the highest run taker with a highest run of %d\n",
            players[hrtp_index].name, players[hrtp_index].highest_run);
 }
+
+/*This function will show the most valuable player*/
 void ShowMVP(struct player players[], int num_players)
 {
     int mvp_index = 0;
@@ -160,6 +188,8 @@ void ShowMVP(struct player players[], int num_players)
     printf("%s is the most valuable player with a value of %d\n",
            players[mvp_index].name, mvp_value);
 }
+
+/*This function will show  the information of all Allrounder*/
 void ShowAllrounders(struct player players[], int num_players)
 {
     printf("\nAll-rounders:\n");
@@ -175,6 +205,10 @@ void ShowAllrounders(struct player players[], int num_players)
     }
 }
 
+/*
+This is main function of the program.It reads the input file and calls
+function to perform operation based on user input
+*/
 int main()
 {
     struct player players[MAX_PLAYERS];
