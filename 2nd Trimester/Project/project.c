@@ -220,12 +220,12 @@ int main()
         printf("\nChoose an option:\n");
         printf("1. Show All Players\n");
         printf("2. Show Player Information\n");
-        printf("3. Show Most Experienced Player\n");
-        printf("4. Show New Comer Player\n");
-        printf("5. Show Top Scorer Player\n");
-        printf("6. Show Hard Hitter Player\n");
-        printf("7. Show High Run Taker Player\n");
-        printf("8. Show Most Valuable Player\n");
+        printf("3. Show Most Experienced Player(MEP)\n");
+        printf("4. Show New Comer Player(NCP)\n");
+        printf("5. Show Top Scorer Player(TSP)\n");
+        printf("6. Show Hard Hitter Player(HHP)\n");
+        printf("7. Show Highest Run Taker Playe(HRTP)\n");
+        printf("8. Show Most Valuable Player(MVP)\n");
         printf("9. Show Allrounders\n");
         printf("10. Exit/Quit\n");
         printf("Enter your choice: ");
@@ -262,7 +262,7 @@ int main()
             ShowAllrounders(players, num_players);
             break;
         case 10:
-            printf("Exiting program...\n");
+            printf("Exit/Quit\n");
             return 0;
         default:
             printf("Invalid choice, please try again\n");
