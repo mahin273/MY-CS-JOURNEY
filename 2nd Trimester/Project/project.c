@@ -59,7 +59,7 @@ void ReadInput(struct player players[], int* num_players)
 }
 
 /*This function will display information of all player*/
-void ShowAllPlayers(struct player players[], int num_players)
+void AllPlayers(struct player players[], int num_players)
 {
     printf("\nAll Players:\n");
     printf("Name\t\t\tAge\tRole\t\t\tMatches\tTotal Runs\tHighest Run\n");
@@ -72,7 +72,7 @@ void ShowAllPlayers(struct player players[], int num_players)
 }
 
 /*This function will display information of a specific player*/
-void ShowPlayerInfo(struct player players[], int num_players)
+void PlayerInfo(struct player players[], int num_players)
 {
     char name[50];
     printf("\nEnter player name: ");
@@ -94,7 +94,7 @@ void ShowPlayerInfo(struct player players[], int num_players)
 }
 
 /*This function will show the most experienced player*/
-void ShowMEP(struct player players[], int num_players)
+void MEP(struct player players[], int num_players)
 {
     int mep_index = 0;
     for (int i = 1; i < num_players; i++)
@@ -109,7 +109,7 @@ void ShowMEP(struct player players[], int num_players)
 }
 
 /*This function will show the new comer player*/
-void ShowNCP(struct player players[], int num_players)
+void NCP(struct player players[], int num_players)
 {
     int ncp_index = 0;
     for (int i = 1; i < num_players; i++)
@@ -124,7 +124,7 @@ void ShowNCP(struct player players[], int num_players)
 }
 
 /*This function will show the top scorer player*/
-void ShowTSP(struct player players[], int num_players)
+void TSP(struct player players[], int num_players)
 {
     int tsp_index = 0;
     for (int i = 1; i < num_players; i++)
@@ -139,7 +139,7 @@ void ShowTSP(struct player players[], int num_players)
 }
 
 /*This function will show the hard hitter player*/
-void ShowHHP(struct player players[], int num_players)
+void HHP(struct player players[], int num_players)
 {
     int hhp_index = 0;
     float hhp_avg = (float)players[hhp_index].total_runs / players[hhp_index].matches;
@@ -157,7 +157,7 @@ void ShowHHP(struct player players[], int num_players)
 }
 
 /*This function will show the highest run taker player*/
-void ShowHRTP(struct player players[], int num_players)
+void HRTP(struct player players[], int num_players)
 {
     int hrtp_index = 0;
     for (int i = 1; i < num_players; i++)
@@ -172,7 +172,7 @@ void ShowHRTP(struct player players[], int num_players)
 }
 
 /*This function will show the most valuable player*/
-void ShowMVP(struct player players[], int num_players)
+void MVP(struct player players[], int num_players)
 {
     int mvp_index = 0;
     int mvp_value = CalculateValue(players[mvp_index]);
@@ -190,7 +190,7 @@ void ShowMVP(struct player players[], int num_players)
 }
 
 /*This function will show  the information of all Allrounder*/
-void ShowAllrounders(struct player players[], int num_players)
+void Allrounders(struct player players[], int num_players)
 {
     printf("\nAll-rounders:\n");
     printf("Name\t\tAge\tRole\tMatches\tTotal Runs\tHighest Run\n");
@@ -235,31 +235,31 @@ int main()
         {
 
         case 1:
-            ShowAllPlayers(players, num_players);
+            AllPlayers(players, num_players);
             break;
         case 2:
-            ShowPlayerInfo(players, num_players);
+            PlayerInfo(players, num_players);
             break;
         case 3:
-            ShowMEP(players, num_players);
+            MEP(players, num_players);
             break;
         case 4:
-            ShowNCP(players, num_players);
+            NCP(players, num_players);
             break;
         case 5:
-            ShowTSP(players, num_players);
+            TSP(players, num_players);
             break;
         case 6:
-            ShowHHP(players, num_players);
+            HHP(players, num_players);
             break;
         case 7:
-            ShowHRTP(players, num_players);
+            HRTP(players, num_players);
             break;
         case 8:
-            ShowMVP(players, num_players);
+            MVP(players, num_players);
             break;
         case 9:
-            ShowAllrounders(players, num_players);
+            Allrounders(players, num_players);
             break;
         case 10:
             printf("Exit/Quit\n");
