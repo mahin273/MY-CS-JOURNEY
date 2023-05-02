@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <string.h>
 #define MAX_PLAYERS 50
@@ -11,7 +10,7 @@ struct player
     int total_runs;
     int highest_run;
 };
-int calculate_value(struct player p)
+int CalculateValue(struct player p)
 {
     int value = p.age + p.matches + p.total_runs + p.highest_run;
     value += (p.total_runs / p.matches) + (p.highest_run / p.age);
@@ -21,31 +20,31 @@ int calculate_value(struct player p)
     }
     return value;
 }
-void read_input(struct player players[], int* num_players)
+void ReadInput(struct player players[], int* num_players)
 {
-    FILE* fp;
+    FILE* file;
     char filename[50];
     printf("Enter input file name: ");
     scanf("%s", filename);
-    fp = fopen(filename, "r");
-    if (fp == NULL)
+    file = fopen(filename, "r");
+    if (file == NULL)
     {
         printf("Error opening input file\n");
         return;
     }
-    fscanf(fp, "%d\n", num_players);
+    fscanf(file, "%d\n", num_players);
     for (int i = 0; i < *num_players; i++)
     {
-        fgets(players[i].name, 50, fp);
+        fgets(players[i].name, 50, file);
         players[i].name[strcspn(players[i].name, "\n")] = 0;
-        fscanf(fp, "%d\n", &players[i].age);
-        fgets(players[i].role, 50, fp);
+        fscanf(file, "%d\n", &players[i].age);
+        fgets(players[i].role, 50, file);
         players[i].role[strcspn(players[i].role, "\n")] = 0;
-        fscanf(fp, "%d\n%d\n%d\n", &players[i].matches, &players[i].total_runs, &players[i].highest_run);
+        fscanf(file, "%d\n%d\n%d\n", &players[i].matches, &players[i].total_runs, &players[i].highest_run);
     }
-    fclose(fp);
+    fclose(file);
 }
-void show_all_players(struct player players[], int num_players)
+void ShowAllPlayers(struct player players[], int num_players)
 {
     printf("\nAll Players:\n");
     printf("Name\t\t\tAge\tRole\t\t\tMatches\tTotal Runs\tHighest Run\n");
@@ -56,7 +55,7 @@ void show_all_players(struct player players[], int num_players)
                players[i].total_runs, players[i].highest_run);
     }
 }
-void show_player_info(struct player players[], int num_players)
+void ShowPlayerInfo(struct player players[], int num_players)
 {
     char name[50];
     printf("\nEnter player name: ");
@@ -77,7 +76,7 @@ void show_player_info(struct player players[], int num_players)
     printf("Player not found\n");
 }
 
-void show_mep(struct player players[], int num_players)
+void ShowMEP(struct player players[], int num_players)
 {
     int mep_index = 0;
     for (int i = 1; i < num_players; i++)
@@ -90,7 +89,7 @@ void show_mep(struct player players[], int num_players)
     printf("%s is the most experienced player with %d matches\n",
            players[mep_index].name, players[mep_index].matches);
 }
-void show_ncp(struct player players[], int num_players)
+void ShowNCP(struct player players[], int num_players)
 {
     int ncp_index = 0;
     for (int i = 1; i < num_players; i++)
@@ -103,7 +102,7 @@ void show_ncp(struct player players[], int num_players)
     printf("%s is the new comer player with age %d\n",
            players[ncp_index].name, players[ncp_index].age);
 }
-void show_tsp(struct player players[], int num_players)
+void ShowTSP(struct player players[], int num_players)
 {
     int tsp_index = 0;
     for (int i = 1; i < num_players; i++)
@@ -116,7 +115,7 @@ void show_tsp(struct player players[], int num_players)
     printf("%s is the top scorer with %d total runs\n",
            players[tsp_index].name, players[tsp_index].total_runs);
 }
-void show_hhp(struct player players[], int num_players)
+void ShowHHP(struct player players[], int num_players)
 {
     int hhp_index = 0;
     float hhp_avg = (float)players[hhp_index].total_runs / players[hhp_index].matches;
@@ -132,7 +131,7 @@ void show_hhp(struct player players[], int num_players)
     printf("%s is the hard hitter with an average run of %.2f per match\n",
            players[hhp_index].name, hhp_avg);
 }
-void show_hrtp(struct player players[], int num_players)
+void ShowHRTP(struct player players[], int num_players)
 {
     int hrtp_index = 0;
     for (int i = 1; i < num_players; i++)
@@ -145,13 +144,13 @@ void show_hrtp(struct player players[], int num_players)
     printf("%s is the highest run taker with a highest run of %d\n",
            players[hrtp_index].name, players[hrtp_index].highest_run);
 }
-void show_mvp(struct player players[], int num_players)
+void ShowMVP(struct player players[], int num_players)
 {
     int mvp_index = 0;
-    int mvp_value = calculate_value(players[mvp_index]);
+    int mvp_value = CalculateValue(players[mvp_index]);
     for (int i = 1; i < num_players; i++)
     {
-        int value = calculate_value(players[i]);
+        int value = CalculateValue(players[i]);
         if (value > mvp_value)
         {
             mvp_index = i;
@@ -161,7 +160,7 @@ void show_mvp(struct player players[], int num_players)
     printf("%s is the most valuable player with a value of %d\n",
            players[mvp_index].name, mvp_value);
 }
-void show_allrounders(struct player players[], int num_players)
+void ShowAllrounders(struct player players[], int num_players)
 {
     printf("\nAll-rounders:\n");
     printf("Name\t\tAge\tRole\tMatches\tTotal Runs\tHighest Run\n");
@@ -180,13 +179,12 @@ int main()
 {
     struct player players[MAX_PLAYERS];
     int num_players;
-    read_input(players, &num_players);
+    ReadInput(players, &num_players);
     int choice;
     while (1)
     {
         printf("\nChoose an option:\n");
         printf("1. Show All Players\n");
-        // ... (Menu options remain the same)
         printf("2. Show Player Information\n");
         printf("3. Show Most Experienced Player\n");
         printf("4. Show New Comer Player\n");
@@ -203,31 +201,31 @@ int main()
         {
 
         case 1:
-            show_all_players(players, num_players);
+            ShowAllPlayers(players, num_players);
             break;
         case 2:
-            show_player_info(players, num_players);
+            ShowPlayerInfo(players, num_players);
             break;
         case 3:
-            show_mep(players, num_players);
+            ShowMEP(players, num_players);
             break;
         case 4:
-            show_ncp(players, num_players);
+            ShowNCP(players, num_players);
             break;
         case 5:
-            show_tsp(players, num_players);
+            ShowTSP(players, num_players);
             break;
         case 6:
-            show_hhp(players, num_players);
+            ShowHHP(players, num_players);
             break;
         case 7:
-            show_hrtp(players, num_players);
+            ShowHRTP(players, num_players);
             break;
         case 8:
-            show_mvp(players, num_players);
+            ShowMVP(players, num_players);
             break;
         case 9:
-            show_allrounders(players, num_players);
+            ShowAllrounders(players, num_players);
             break;
         case 10:
             printf("Exiting program...\n");
