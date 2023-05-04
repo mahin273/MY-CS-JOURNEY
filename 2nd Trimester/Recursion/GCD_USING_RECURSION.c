@@ -1,17 +1,29 @@
 #include<stdio.h>
+#include<math.h>
+
 int gcd(int,int);
 int main()
 {
-int a,b,GCD;
-scanf("%d %d",&a,&b);
-GCD=gcd(a,b);
-printf("Result = %d",GCD);
+int a,b,result;
+scanf("%d%d",&a,&b);
+if (a>b)
+{
+   result=gcd(a,b);
+
+}
+else
+{
+   result=gcd(b,a);
+}
+  printf("Result = %d",result);
+
+
 return 0;
 }
 
 int gcd(int x,int y)
 {
-     if (y==1)
+     if (y==0)
      {
         return x;
      }
@@ -19,6 +31,6 @@ int gcd(int x,int y)
      {
         return gcd(y, x%y);
      }
-     
-      
+
+
 }
