@@ -23,13 +23,19 @@ return fibo(n-1 )+fibo(n-2);
 
 int main()
 {
-int num,finobacci;
+int num,finobacci,i;
+
 
 printf("Enter Your Number : \n");
 
 scanf("%d",&num);
+for ( i = 0; i < num; i++)
+{
+  finobacci =fibo(i);
+printf("%d\t",finobacci);
+}
 
-finobacci =fibo(num);
-printf("%d",finobacci);
+
+
     return 0;
 }
