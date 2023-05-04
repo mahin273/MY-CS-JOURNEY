@@ -65,7 +65,7 @@ void AllPlayers(struct player players[], int num_players)
     printf("Name\t\t\tAge\tRole\t\t\tMatches\tTotal Runs\tHighest Run\n");
     for (int i = 0; i < num_players; i++)
     {
-        printf("%-24s %d\t%-24s %d\t%d\t\t%d\n", players[i].name, players[i].age,
+        printf("%-24s %d\t%-24s %d\t%d\t\t%d\n\n", players[i].name, players[i].age,
                players[i].role, players[i].matches,
                players[i].total_runs, players[i].highest_run);
     }
@@ -198,7 +198,7 @@ void Allrounders(struct player players[], int num_players)
     {
         if (strcmp(players[i].role, "Allrounder") == 0)
         {
-            printf("%-14s %d\t%-10s %d\t%d\t\t%d\n", players[i].name, players[i].age,
+            printf("%-14s %d\t%-10s %d\t%d\t\t%d\n\n", players[i].name, players[i].age,
                    players[i].role, players[i].matches,
                    players[i].total_runs, players[i].highest_run);
         }
