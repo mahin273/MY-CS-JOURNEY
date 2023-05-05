@@ -8,7 +8,6 @@ int main()
     printf("Result = %d",Digits);
      
 
-
 }
 
 int count(int x)
