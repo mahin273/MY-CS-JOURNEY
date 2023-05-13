@@ -1,12 +1,17 @@
 #include <stdio.h>
 #include <string.h>
-struct Student
-{
+
+struct Student{
     int roll;
     char name[50];
     int age;
     int marks;
 };
+
+//function prototype
+void show_same_marks(struct Student students[], int size, int marks);
+void show_even_roll_no(struct Student students[], int size);
+void show_age_out_of_range(struct Student students[], int size);
 
 int main()
 {
@@ -15,7 +20,7 @@ int main()
 
     for (i = 0; i < 5; i++)
     {
-        printf("Enter Roll No., Name, Age, and Marks of Student %d:\n", i + 1);
+        printf("Enter Roll Number, Name, Age, and Marks of Students %d:\n", i + 1);
         scanf("%d %s %d %d", &students[i].roll, students[i].name, &students[i].age, &students[i].marks);
     }
 
@@ -81,3 +86,7 @@ void show_age_out_of_range(struct Student students[], int size)
         printf("No Student Found With Age Out of Range.\n");
     }
 }
+
+
+
+
